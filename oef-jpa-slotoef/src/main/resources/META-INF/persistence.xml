@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+<!-- 	<persistence-unit name="slotoef"> -->
+<!-- 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+	
+<!-- 		<class>org.betavzw.slotoef.entity.AccountManager</class> -->
+<!-- 		<class>org.betavzw.slotoef.entity.Bestelling</class> -->
+<!-- 		<class>org.betavzw.slotoef.entity.Categorie</class> -->
+<!-- 		<class>org.betavzw.slotoef.entity.Klant</class> -->
+<!-- 		<class>org.betavzw.slotoef.entity.Product</class> -->
+<!-- 		<class>org.betavzw.slotoef.entity.Id</class> -->
+<!-- 		<properties> -->
+<!-- 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> -->
+<!-- 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/slotoef" /> -->
+<!-- 			<property name="hibernate.connection.username" value="root" /> -->
+<!-- 			<property name="hibernate.connection.password" value="root" /> -->
+<!-- 			<property name="hibernate.connection.pool_size" value="1" /> -->
+<!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /> -->
+<!-- 			<property name="hibernate.show_sql" value="true" /> -->
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="create" /> -->
+<!-- 		</properties> -->
+<!-- 	</persistence-unit> -->
+
+	<persistence-unit name="oef-jpa-slotoef" transaction-type="JTA">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<jta-data-source>jdbc/__slotoef</jta-data-source>
+		
+		<class>org.betavzw.slotoef.entity.AccountManager</class>
+		<class>org.betavzw.slotoef.entity.Bestelling</class>
+		<class>org.betavzw.slotoef.entity.Categorie</class>
+		<class>org.betavzw.slotoef.entity.Klant</class>
+		<class>org.betavzw.slotoef.entity.Product</class>
+		<class>org.betavzw.slotoef.entity.Id</class>
+
+		<properties>
+			<property name="hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
+		</properties>
+	</persistence-unit>
+</persistence>
